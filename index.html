@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Upload</title>
+    <meta
+      name="description"
+      content="Student upload register built with HTML, CSS and JavaScript."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;700&family=Red+Hat+Display:wght@500;700;800&family=Red+Hat+Text:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <h1>Student Upload</h1>
+        <span id="studentCount" class="count-pill">0</span>
+      </header>
+
+      <section class="content-grid">
+        <section class="panel form-panel" aria-labelledby="form-title">
+          <h2 id="form-title">Add a student</h2>
+
+          <form id="studentForm" novalidate>
+            <div class="field-group">
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" autocomplete="name" />
+              <div id="nameError" class="field-error" aria-live="polite"></div>
+            </div>
+
+            <div class="field-group">
+              <label for="matric">Matric number</label>
+              <input id="matric" name="matric" type="text" placeholder="23/024145123" />
+              <div id="matricError" class="field-error" aria-live="polite"></div>
+            </div>
+
+            <div class="field-group">
+              <label for="level">Level</label>
+              <select id="level" name="level">
+                <option value="">Select level</option>
+                <option value="100">100 Level</option>
+                <option value="200">200 Level</option>
+                <option value="300">300 Level</option>
+                <option value="400">400 Level</option>
+                <option value="500">500 Level</option>
+                <option value="600">600 Level</option>
+              </select>
+              <div id="levelError" class="field-error" aria-live="polite"></div>
+            </div>
+
+            <div class="field-group">
+              <label for="department">Department</label>
+              <input
+                id="department"
+                name="department"
+                list="departmentOptions"
+                type="text"
+                autocomplete="organization"
+              />
+              <datalist id="departmentOptions">
+                <option value="Computer Science"></option>
+                <option value="Accounting"></option>
+                <option value="Mass Communication"></option>
+                <option value="Business Administration"></option>
+                <option value="Biochemistry"></option>
+                <option value="Economics"></option>
+                <option value="Psychology"></option>
+                <option value="Political Science"></option>
+                <option value="Civil Engineering"></option>
+                <option value="Electrical Engineering"></option>
+              </datalist>
+              <div id="departmentError" class="field-error" aria-live="polite"></div>
+            </div>
+
+            <button type="submit" class="primary-btn">Add student</button>
+          </form>
+        </section>
+
+        <aside class="panel register-panel" aria-labelledby="register-title">
+          <div class="register-header">
+            <h2 id="register-title">Student register</h2>
+            <button type="button" id="toggleNamesBtn" class="ghost-btn">
+              Done, show names
+            </button>
+          </div>
+
+          <div id="studentList" class="student-list" aria-live="polite"></div>
+
+          <div id="namesPanel" class="names-panel hidden" aria-live="polite">
+            <h3>Student names</h3>
+            <ol id="namesList"></ol>
+          </div>
+
+          <div class="register-actions">
+            <button id="removeLastBtn" type="button" class="secondary-btn" disabled>
+              Remove last
+            </button>
+          </div>
+
+          <p id="statusMessage" class="status-message" role="status" aria-live="polite"></p>
+
+          <div id="emptyState" class="empty-state">
+            <p>No students added yet.</p>
+            <button type="button" id="sampleBtn" class="soft-btn">
+              Add 3 sample students
+            </button>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
